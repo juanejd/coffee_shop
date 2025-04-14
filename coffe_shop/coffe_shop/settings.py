@@ -132,3 +132,4 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
 
 LOGIN_REDIRECT_URL = 'list_product' # a que url redireccionaremos al usuario cuando inicie sesion
+LOGIN_REDIRECT_URL = 'list_product'
