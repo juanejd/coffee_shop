@@ -12,7 +12,7 @@ class Order(models.Model):
     def __str__(self):
         return f'order {self.id} by {self.user}'
     
-# Modelo para guardar la orden, el prodcuto y la cantidad
+# Modelo para guardar la orden, el producto y la cantidad
 class OrderProduct(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE) #relacion con el modelo de orden
     product = models.ForeignKey(Product, on_delete=models.PROTECT) #si la orden esta lista y el producto se elimina, necesitamos dejar la orden en su estado anterior
