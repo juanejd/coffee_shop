@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_tailwind',
     'products',
-    'users'
+    'users',
+    'orders'
 
 ]
 
@@ -133,3 +134,4 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 
 LOGIN_REDIRECT_URL = 'list_product' # a que url redireccionaremos al usuario cuando inicie sesion
 LOGIN_REDIRECT_URL = 'list_product'
+LOGIN_URL = 'login'
