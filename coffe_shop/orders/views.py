@@ -1,9 +1,12 @@
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 from .models import Order
 from .forms import OrderProductForm
+from .serializers import OrderSerializer
 
 # Vista que nos muestra en detalle la orden que hicimos
 # Con LoginRequiredMixin, obligamos a que el usuario tenga una sesion iniciada para acceder a la vista
@@ -34,3 +37,13 @@ class CreateOrderProductView(LoginRequiredMixin, CreateView):
         form.save()
         return super().form_valid(form) 
     
+class OrderAPI(APIView):
+
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request):
+        orders = Order.objects.all()
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data)
+
